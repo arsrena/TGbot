@@ -1,19 +1,24 @@
 import telebot
 from telebot import types
 
-# from requests import Request, Session
-# from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-# import json
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+import json
 
-# api_key = '7c1a3096-1d3a-4e5f-bb48-d4cb62fda73e'
+api_key = '7c1a3096-1d3a-4e5f-bb48-d4cb62fda73e'
 
-# from coinmarketcapapi import CoinMarketCapAPI, CoinMarketCapAPIError
+from coinmarketcapapi import CoinMarketCapAPI, CoinMarketCapAPIError
 
-# cmc = CoinMarketCapAPI(api_key)
+cmc = CoinMarketCapAPI(api_key)
   
-# r = cmc.cryptocurrency_info(symbol='BTC')
+r = cmc.cryptocurrency_info(symbol='BTC')
+data_quote = cmc.cryptocurrency_quotes_latest(symbol='BTC', convert='USD')
 
-# print(r)
+x = data_quote
+y = x.data['BTC']['quote']['USD']['price']
+round_price = round(y, 2)
+
+print(round_price)
 
 bot = telebot.TeleBot('5654043644:AAHJ-rFpzwvzkjehr2tWg4FzksoG81WmGiI')
 
