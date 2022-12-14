@@ -42,6 +42,7 @@ def start (message):
     btn4 = types.KeyboardButton('USD Coin')
     btn5 = types.KeyboardButton('BNB')
     markup.add(btn1, btn2, btn3, btn4, btn5)
+    
     bot.send_message(message.chat.id, send_mess, parse_mode='html', reply_markup=markup)   
 
 @bot.message_handler(commands=['menu'])
